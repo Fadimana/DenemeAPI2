@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace DataAccess.Layer.Contrete
@@ -17,12 +19,26 @@ namespace DataAccess.Layer.Contrete
             _context = context;
         }
 
-        public async Task<Bölüm> CreateBölüm(Bölüm bölüm)
+        public async Task<Bölüm> CreateBölüm(string bölümname, int fakülteid)
         {
+            Fakülte fakülte = await _context.Fakülteler.FindAsync(fakülteid);
+            Bölüm bölüm = new() { Name = bölümname,FakülteId =fakülteid, Fakülte = fakülte };
+            fakülte.Bölümler.Add(bölüm);
+
+            var options = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                MaxDepth = 32,
+            };
+
+            string jsonString = JsonSerializer.Serialize(fakülte, options);
+
             await _context.Bölümler.AddAsync(bölüm);
             await _context.SaveChangesAsync();
+
             return bölüm;
         }
+
 
         public Task DeleteBölüm(int id)
         {
@@ -31,7 +47,7 @@ namespace DataAccess.Layer.Contrete
 
         public async Task<List<Bölüm>> GetAllBölüm()
         {
-            return  _context.Bölümler.ToList();
+            return await _context.Bölümler.ToListAsync();
             
         }
 

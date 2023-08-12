@@ -18,9 +18,9 @@ namespace Business.Layer.Contrete
         {
             _bölümRepository = bölümRepository;
         }
-        public Task<Bölüm> CreateBölüm(Bölüm bölüm)
+        public Task<Bölüm> CreateBölüm(string bölümname, int fakülteid)
         {
-            return _bölümRepository.CreateBölüm(bölüm);
+            return _bölümRepository.CreateBölüm(bölümname, fakülteid);
         }
 
         public Task DeleteBölüm(int id)

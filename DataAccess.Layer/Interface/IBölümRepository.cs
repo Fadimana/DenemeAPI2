@@ -12,7 +12,7 @@ namespace DataAccess.Layer.Interface
         Task<Bölüm> GetBölüm(int id);
         Task<List<Bölüm>> GetAllBölüm();
 
-        Task<Bölüm> CreateBölüm(Bölüm bölüm);
+        Task<Bölüm> CreateBölüm(string bölümname, int fakülteid);
         Task DeleteBölüm(int id);
 
         Task<Bölüm> UpdateBölüm(Bölüm bölüm);

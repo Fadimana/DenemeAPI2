@@ -17,10 +17,10 @@ namespace Deneme5.Controllers
             _bölümBusinessServices = bölümBusinessServices;
 
         }
-        [HttpPost]
-        public async Task<IActionResult> Post(Bölüm bölüm)
+        [HttpPost("Create")]
+        public async Task<IActionResult> Post(string bölümname, int fakülteid)
         {
-            var p = await _bölümBusinessServices.CreateBölüm(bölüm);
+            var p = await _bölümBusinessServices.CreateBölüm(bölümname, fakülteid);
             if (p == null)
             {
                 return NotFound();
@@ -28,7 +28,7 @@ namespace Deneme5.Controllers
             return Ok(p);
 
         }
-        [HttpGet]
+        [HttpGet("Show")]
         public async Task<IActionResult> Get()
         {
             var g = await _bölümBusinessServices.GetAllBölüm();

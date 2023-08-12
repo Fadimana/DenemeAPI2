@@ -14,10 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<OkulDb>();
-builder.Services.AddScoped<IBölümRepository , BölümRepository > ();
-builder.Services.AddScoped<IBölümBusinessServices,BölümBusinessServices> ();
-builder.Services.AddScoped<IFakülteRepository,FakülteRepository> ();
-builder.Services.AddScoped<IFakülteBusinessServices,FakülteBusinessServices> ();
+builder.Services.AddScoped<IBÃ¶lÃ¼mRepository , BÃ¶lÃ¼mRepository > ();
+builder.Services.AddScoped<IBÃ¶lÃ¼mBusinessServices,BÃ¶lÃ¼mBusinessServices> ();
+builder.Services.AddScoped<IFakÃ¼lteRepository,FakÃ¼lteRepository> ();
+builder.Services.AddScoped<IFakÃ¼lteBusinessServices,FakÃ¼lteBusinessServices> ();
 
 
 var app = builder.Build();

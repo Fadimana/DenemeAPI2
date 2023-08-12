@@ -8,8 +8,12 @@ namespace DataAccess.Layer.Entity
 {
     public class Fakülte //principal
     {
+        public Fakülte() { 
+            Bölümler = new HashSet<Bölüm>();
+        }
+
         public int Id { get; set; }
-        public string? FakülteName { get; set; }
+        public string? Name { get; set; }
 
         public ICollection<Bölüm>Bölümler { get; set; }
 

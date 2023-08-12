@@ -9,7 +9,7 @@ namespace DataAccess.Layer.Entity
     public class Bölüm
     {
         public int Id { get; set; }
-        public string? BölümName { get; set; }
+        public string? Name { get; set; }
 
         public int FakülteId { get; set; }
 
