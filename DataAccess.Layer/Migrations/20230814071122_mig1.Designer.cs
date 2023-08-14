@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Layer.Migrations
 {
     [DbContext(typeof(OkulDb))]
-    [Migration("20230810121709_mig1")]
+    [Migration("20230814071122_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -32,11 +32,11 @@ namespace DataAccess.Layer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("BölümName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("FakülteId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -53,7 +53,7 @@ namespace DataAccess.Layer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("FakülteName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
